@@ -84,7 +84,7 @@ public class DataService
             File.AppendAllLines(DBFilePath, new_info);
             return true;
         }
-        catch
+        catch 
         {
             return false;
         }
