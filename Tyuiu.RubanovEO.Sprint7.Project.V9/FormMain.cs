@@ -7,7 +7,7 @@ namespace Tyuiu.RubanovEO.Sprint7.Project.V9
     {
         public FormMain()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
         DataService ds = new();
 
