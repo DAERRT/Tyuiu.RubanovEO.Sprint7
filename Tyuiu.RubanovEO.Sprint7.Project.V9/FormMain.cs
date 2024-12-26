@@ -11,21 +11,6 @@ namespace Tyuiu.RubanovEO.Sprint7.Project.V9
         }
         DataService ds = new();
 
-        public void refresh_dataGridViewPlaylist()
-        {
-            string[,] data = ds.GetInfo();
-
-            int rows = data.GetLength(0);
-
-            dataGridViewPlaylist.RowCount = rows;
-
-            for (int i = 0; i < rows; i++)
-            {
-                dataGridViewPlaylist.Rows[i].Cells[0].Value = data[i, 1];
-                dataGridViewPlaylist.Rows[i].HeaderCell.Value = i;
-            }
-        }
-
         private void buttonAddFile_Click(object sender, EventArgs e)
         {
             FormAddFile formAddFile = new FormAddFile();
@@ -40,7 +25,17 @@ namespace Tyuiu.RubanovEO.Sprint7.Project.V9
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            refresh_dataGridViewPlaylist();
+            string[,] data = ds.GetInfo();
+
+            int rows = data.GetLength(0);
+
+            dataGridViewPlaylist.RowCount = rows;
+
+            for (int i = 0; i < rows; i++)
+            {
+                dataGridViewPlaylist.Rows[i].Cells[0].Value = data[i, 1];
+                dataGridViewPlaylist.Rows[i].HeaderCell.Value = i;
+            }
         }
 
         private void dataGridViewPlaylist_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -74,16 +69,26 @@ namespace Tyuiu.RubanovEO.Sprint7.Project.V9
 
         private void FormMain_Activated(object sender, EventArgs e)
         {
-            refresh_dataGridViewPlaylist();
+            string[,] data = ds.GetInfo();
+
+            int rows = data.GetLength(0);
+
+            dataGridViewPlaylist.RowCount = rows;
+
+            for (int i = 0; i < rows; i++)
+            {
+                dataGridViewPlaylist.Rows[i].Cells[0].Value = data[i, 1];
+                dataGridViewPlaylist.Rows[i].HeaderCell.Value = i;
+            }
         }
 
         private void buttonDeleteFile_Click(object sender, EventArgs e)
         {
-            try
-            {
+           try
+           {
                 if (ds.DeleteInfo(dataGridViewPlaylist.SelectedCells[0].RowIndex))
                 {
-                    MessageBox.Show("Файл успешно удален", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Файл успешно удален", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     WMP.URL = string.Empty;
                 }
                 else
@@ -92,12 +97,22 @@ namespace Tyuiu.RubanovEO.Sprint7.Project.V9
                 }
 
 
-                refresh_dataGridViewPlaylist();
-            }
-            catch
-            {
+                string[,] data = ds.GetInfo();
+
+                int rows = data.GetLength(0);
+
+                dataGridViewPlaylist.RowCount = rows;
+
+                for (int i = 0; i < rows; i++)
+                {
+                    dataGridViewPlaylist.Rows[i].Cells[0].Value = data[i, 1];
+                    dataGridViewPlaylist.Rows[i].HeaderCell.Value = i;
+                }
+           }
+           catch
+           {
                 MessageBox.Show("Список пуст или файл не выбран!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           }
         }
     }
 }
