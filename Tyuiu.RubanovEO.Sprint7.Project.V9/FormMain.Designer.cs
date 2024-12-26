@@ -213,6 +213,7 @@
             // 
             // panelCntrl
             // 
+            panelCntrl.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panelCntrl.BorderStyle = BorderStyle.Fixed3D;
             panelCntrl.Controls.Add(buttonDeleteFile);
             panelCntrl.Controls.Add(buttonAddFile);
@@ -254,6 +255,7 @@
             // 
             // panelPlaylist
             // 
+            panelPlaylist.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panelPlaylist.BorderStyle = BorderStyle.Fixed3D;
             panelPlaylist.Controls.Add(dataGridViewPlaylist);
             panelPlaylist.Location = new Point(676, 0);
@@ -293,7 +295,7 @@
             Controls.Add(panelInfo);
             Controls.Add(panelPlaylist);
             Controls.Add(panelWMP);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            MinimumSize = new Size(1020, 615);
             Name = "FormMain";
             Text = "Видеотека";
             Activated += FormMain_Activated;
