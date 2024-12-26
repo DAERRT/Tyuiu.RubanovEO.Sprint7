@@ -62,7 +62,7 @@
             // 
             // panelWMP
             // 
-            panelWMP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelWMP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelWMP.Controls.Add(WMP);
             panelWMP.Location = new Point(1, 0);
             panelWMP.Name = "panelWMP";
@@ -81,7 +81,7 @@
             // 
             // panelInfo
             // 
-            panelInfo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelInfo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelInfo.BorderStyle = BorderStyle.Fixed3D;
             panelInfo.Controls.Add(textBoxDesc);
             panelInfo.Controls.Add(labelDesc);
